@@ -1,0 +1,9 @@
+import sys
+def mincount(data, rec, limit):
+    if (rec > limit): return sys.maxsize
+    if (rec == limit): return 0
+    if (rec == limit - 1): return 0 if (data[rec] == data[limit]) else 1
+    if (data[rec] == data[limit]): return mincount(data, rec + 1, limit - 1)
+    else: return (min(mincount(data, rec, limit - 1), mincount(data, rec + 1, limit)) + 1)
+data = input()
+print(mincount(data, 0, len(data) - 1))
