@@ -1,0 +1,14 @@
+
+m,n=map(int,input().split())
+data=[]
+for _ in range(m):
+    data.append(list(map(int,input().split())))
+rotation=map(int,input().split())
+opened=[]
+lim=m
+for i in range(m):
+    val=opn(data,i,lim)
+    opened.append(val)
+    lim-=1
+print(data)
+print(*opened)
